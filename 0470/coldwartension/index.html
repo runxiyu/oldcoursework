@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+
+<!--TODO: Check all quotes-->
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Feb&ndash;Aug&nbsp;1945 Cold War Timeline &mdash; Roy&nbsp;Wei &amp; Runxi&nbsp;Yu</title>
+<style>
+* {
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+  background: linear-gradient(to right, rgb(71, 70, 103) 30%, #892727 80%);
+  font-family: "Helvetica", sans-serif;
+  text-align: justify;
+   cursor: auto;
+}
+
+main {
+	margin-bottom: 2em;
+}
+
+blockquote {
+    font-family: "Baskerville", serif;
+    font-size: 90%;
+}
+
+#widthwarn {
+  /* border: 1px solid black; */
+  background-color: rgb(235, 235, 235);
+  border-radius: 1rem;
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  padding: 1em;
+  transform: translate(-50%, -50%);
+  text-align: left;
+  max-width: fit-content;
+}
+
+#widthwarn .container {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 1rem;
+}
+
+#widthwarn .container img.iso7010 {
+    flex: 2rem;
+    text-align: center;
+    max-width: 4rem;
+    margin: auto;
+    width: 4rem;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+#widthwarn .container p {
+    flex: 10rem;
+    position: static;
+    margin: auto auto;
+}
+
+@media (max-width: 900px) {
+    main {display: none;}
+    #widthwarn {display: block;}
+    body {background: rgb(255, 255, 255);}
+}
+
+.timeline {
+  position: relative;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  background: linear-gradient(180deg, rgba(255, 0, 0, 0.2), rgba(255, 165, 0, 0.2), rgba(255, 255, 0, 0.2), rgba(0, 128, 0, 0.2), rgba(0, 0, 255, 0.2), rgba(75, 0, 130, 0.2), rgba(238, 130, 238, 0.2));
+  mix-blend-mode: screen;
+  background-blend-mode: screen;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+}
+
+/* Container around content */
+.timeline .container {
+  box-sizing: border-box; 
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+}
+
+.column-title {
+  box-sizing: border-box; 
+  padding: 10px 40px;
+  position: absolute;
+  background-color: inherit;
+  width: 50%;
+  text-align: center;
+  font-size: 1.5em;
+  color: rgba(255, 255, 255, 0.7);;
+  margin-bottom: 10px;
+}
+
+.column-title-spacer {
+    height: 50px;
+    margin: 0 0 0 0;
+    background: transparent;
+    position: relative;
+}
+
+/* The circles on the timeline */
+.timeline .container::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -17px;
+  background-color: rgba(100, 100, 100, 0.3);;
+  background-blend-mode: screen;
+  mix-blend-mode: screen;
+  border: 4px solid transparent;
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Place the container to the left */
+.left {
+  left: 0;
+}
+
+/* Place the container to the right */
+.right {
+  left: 50%;
+}
+
+/* Add arrows to the left container (pointing right) */
+.timeline .container.left::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  right: 30px;
+  border: medium solid rgba(255, 255, 255, 0.4);
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent rgba(255, 255, 255, 0.4);
+}
+
+/* Add arrows to the right container (pointing left) */
+.timeline .container.right::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  left: 30px;
+  border: medium solid rgba(255, 255, 255, 0.4);
+  border-width: 10px 10px 10px 0;
+  border-color: transparent rgba(255, 255, 255, 0.4) transparent transparent;
+}
+
+/* Fix the circle for containers on the right side */
+.timeline .container.right::after {
+  left: -16px;
+}
+
+/* The actual content */
+.container .content {
+  box-sizing: border-box; 
+  padding: 1em;
+  background-color: rgba(255, 255, 255, 0.4);
+  position: relative;
+  border-radius: 0.8rem;
+    transition: background-color 0.5s ease;
+}
+
+
+.container .content p {
+    font-family: "Baskerville", serif;
+}
+
+.container .content p.source {
+    position: inline-block;
+    color: rgba(0, 0, 0, 0.5);
+    font-family: "Helvetica", sans-serif;
+    font-size: 100%;
+    margin-top: -1em;
+}
+
+.container .content p.source a {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.container .content p.source a sub {
+    font-size: 50;
+}
+
+.container .content p.source a:hover {
+    color: rgba(0, 0, 0, 1);
+}
+
+.container.left .content p.source {
+    float: left;
+}
+.container.right .content p.source {
+    float: right;
+}
+
+.container .content h2 {
+    margin: 0;
+}
+
+.container .content h3 {
+    margin: 0 0 3px 0;
+    font-style: italic;
+    font-family: "Baskerville", serif;
+    font-weight: normal;
+}
+
+.container .content p:last-of-type {
+    margin-bottom: 0;
+}
+
+.container.left .content h2 {
+    text-align: right;
+}
+.container.left .content h3 {
+    text-align: right;
+}
+
+.container.right .content h2 {
+    text-align: left;
+}
+.container.right .content h3 {
+    text-align: left;
+}
+
+.legend-color {
+display: inline-block;
+min-width: 1.25em;
+height: 1.25em;
+line-height: 1.25;
+margin: 1px 0;
+text-align: center;
+border: 1px solid black;
+background-color: transparent;
+color: black;
+}
+
+
+h1 {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);;
+}
+
+figure {
+   text-align: center;
+}
+
+figure img {
+    width: 100%;
+}
+
+figure figcaption {
+    text-align: center;
+    font-size: 80%;
+}
+
+details {
+    border: 1.5px solid rgba(0, 0, 0, 0.2);
+    border-radius: 0.5rem;
+    padding: 0.33rem 0.5rem;
+}
+
+details summary {
+    cursor: pointer;
+}
+
+details p {
+    margin-bottom: 0rem;
+    margin-block-end: 0rem;
+}
+
+.textbox {
+  box-sizing: border-box; 
+  font-family: "Baskerville", serif;
+  padding: 1em;
+  background-color: rgba(255, 255, 255, 0.4);
+  position: relative;
+  border-radius: 0.8rem;
+  width: 93%;
+  max-width: 800px;
+  margin: auto;
+    transition: background-color 0.5s ease;
+
+}
+
+
+</style>
+</head>
+<body>
+    <main>
+	    <h1>What actions aggravated the worsening relationship between the USA and the USSR between February&ndash;August 1945?<br />
+		    <span style="font-size: 80%; font-weight: normal; font-style: italic;">Roy&nbsp;Wei &amp; Runxi&nbsp;Yu</span>
+</h1>
+
+<div class="timeline">
+  <div class="column-title left">
+    USA Actions
+  </div>
+  <div class="column-title right">
+    USSR Actions
+  </div>
+  <div class="column-title-spacer"></div>
+  <div class="container right">
+    <div class="content">
+      <h3>December 1944 &ndash; June 1945</h3>
+      <h2>The People’s Tribunals in Bulgaria</h2>
+      <p>
+      Mass purges organized by Bulgarian authorities and supported by the Soviet Union murdered 20,000&ndash;40,000 people without any trial in autumn 1944.
+      </p>
+      <p>
+        From December 1944 to June 1945, about 130 show trials were organized at “People’s Tribunals”. The judges often had little or no legal education. About 10,000 people were accused, including most members of the ruling dynasty and the previous government. About 2,700 were sentenced to death, more than 1,200 to life imprisonment, and 1,600 to long-term imprisonment.
+      </p>
+      <details>
+        <summary>
+            Background
+        </summary>
+      <p>
+        Bulgaria was initially neutral in the Second World War but joined the Axis in 1941. The Bulgarian Workers’ Party (BRP; the Communist party in Bulgaria) called for an uprising against the Bulgarian Kingdom. In 1942, the Soviet Union called for the BRP to establish the Fatherland Front, calling against the Kingdom and demanding democratization as awell as leaving the Axis.
+      </p>
+      <p>
+        At the Moscow Conference in October 1944, it was decided that Bulgaria should be in the Soviet sphere of influence. On the 8th of December, the Red Army entered Bulgaria, and the coup d’état was accomplished. The Communists operating under the Fatherland Front seized power with the help of patrisan troops and the Red Army to form the new Bulgarian government.
+      </p>
+      <p>
+        The Fatherland Front was transformed from a coalition of a few political parties with variation in ideology and social bases, into a monolithic organization under control of the communist party.
+      </p>
+      </details>
+      <figure>
+       <img src="bulgaria.jpg" alt="A Sitting of the People’s Court" />
+       <figcaption>A Sitting of the People’s Court</figcaption>
+      </figure>
+      <p class="source"><a href="https://en.wikipedia.org/wiki/Trial_of_the_Sixteen">ℹ</a></a></p>
+    </div>
+  </div>
+  <div class="container left">
+    <div class="content">
+      <h3>February 6, 1945</h3>
+      <h2>Non-recognition of the Lublin Government</h2>
+      <p>
+      During the Yalta conference, FDR said to Stalin:
+      </p>
+      <blockquote>
+	      Opinion in the United States is against recognition of the Lublin government on the ground that it represents a small portion of the Polish people. What people want is the creation of a government of national unity to settle their internal differences. A government which would represent all five major parties (names them) is what is wanted. It may interest Marshal Stalin that I do not know any of the London or of the Lublin government.
+      </blockquote>
+      <p>
+	The United States is not recognizing the Lublin Government of Poland because it is excessively backed by the Soviets and did not adequately represent the Polish people. Stalin argued that it needed security via states that are more aligned with the Soviets.
+      </p>
+      <p>
+      The United States only recognized the Lublin government later, on July 5th, 1945.
+      </p>
+      <figure>
+       <img src="yalta.jpg" alt="Leaders of the Big Three at the negotiating table at the Yalta conference" />
+       <figcaption>Leaders of the Big Three at the negotiating table at the Yalta conference</figcaption>
+      </figure>
+      <p class="source"><a href="https://history.state.gov/historicaldocuments/frus1945Malta/d354">ℹ</a></a></p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h3>March 27&ndash;28, 1945</h3>
+      <h2>Trial of the Sixteen</h2>
+      <p>
+      During the final stages of World War II, before the Yalta Conference, the Soviet Red Army had liberated Poland and established the Lublin Committee, a communist administrative body. At Yalta, the Allies discussed Poland’s future, agreeing that it should have a coalition government comprising members of the London-based Polish government-in-exile and the Lublin Committee. The UK and US insisted on free elections, rejecting a one-party system. In exchange for Soviet agreement, the USSR was granted territory in Eastern Poland. However, post-war, the Soviet Union failed to honor these agreements. The June elections in Poland were manipulated to ensure Communist dominance. Furthermore, in a direct violation of the Yalta Agreement, Soviet actions in Poland, notably the “Trial of the Sixteen,” further escalated tensions. Sixteen Polish underground leaders, loyal to the government-in-exile, were deceptively arrested by the Soviet secret police during supposed negotiations and tried in Moscow. It significantly worsened the relationship between the Soviet Union and its Western allies, fueling the onset of the Cold War.
+        </p>
+      <figure>
+       <img src="trial16.jpeg" alt="Trial of the Sixteen" />
+       <figcaption>Trial of the Sixteen</figcaption>
+      </figure>
+      <p class="source"><a href="https://en.wikipedia.org/wiki/Trial_of_the_Sixteen">ℹ</a></a></p>
+    </div>
+  </div>
+  <div class="container left">
+    <div class="content">
+      <h3>February&ndash;May 1945</h3>
+      <h2>Operation Sunrise</h2>
+      <p>
+      Operation Sunrise, also known as the Berne incident, was an operation involving secret negotiations between the United States and Nazi Germany for German forces to surrender locally in northern Italy.
+      </p>
+      <p>
+      On March 12, 1945, the American ambassador in the USSR, William Averell Harriman, notified Soviet foreign minister Molotov that Karl Wolff, the Higher SS Police Chief for Italy, may arrive in Lugano to negotiate the Germany army’s surrender in Italy. Molotov replied that the USSR does not object provided that the Soviet Military Command could also take part in the negotiation. On March 16th, this request to join in the negotiations was rejected by the US.
+      </p>
+      <p>
+      This caused Stalin to be suspiscious that the US was trying to sign a “separate peace” with Germany.
+      </p>
+      <details>
+	      <summary>
+		Some very intersting primary sources
+	      </summary>
+	      <p>
+	      (All emphasis are added during the preparation of this assessment.)
+	      </p>
+      <p>
+      Molotov wrote on March 22:
+      </p>
+      <blockquote>
+	      [...] for two weeks, in Bern, behind the back of the Soviet Union, negotiations between representatives of the German Military Command on one side and representatives of American and British Command on the other side are conducted. <strong>The Soviet government considers this absolutely inadmissible.</strong>
+      </blockquote>
+      <p>
+      Roosevelt wrote to Stalin:
+      </p>
+      <blockquote>
+	      In the exchange of messages we have had on possible future negotiations with the Germans for surrender of their forces in Italy, it seems to me that, although both of us are in agreement on all the basic principles, the matter now stands in <strong>an atmosphere of regrettable apprehension and mistrust</strong>.
+      </blockquote>
+      <p>
+      Stalin wrote to Roosevelt:
+      </p>
+      <blockquote>
+	      I think that my colleagues are not very far from the truth. If the contrary were the case <strong>the exclusion of representatives of the Soviet Command from the Berne talks would be inexplicable</strong>.
+      </blockquote>
+	</details>
+      <figure>
+       <img src="sunrise.jpg" alt="SS General Karl Wolff’s Proxy of Surrender for northern Italy" />
+       <figcaption>SS General Karl Wolff’s Proxy of Surrender for northern Italy</figcaption>
+      </figure>
+    <p class="source"><a href="https://en.wikipedia.org/wiki/Operation_Sunrise_(World_War_II)">ℹ</a></p>
+    </div>
+  </div>
+  <div class="container left">
+    <div class="content">
+      <h3>April 12, 1945</h3>
+      <h2>Truman’s Inauguration</h2>
+      <p>
+      FDR died of a intracerebral hemorrhage on April 12, 1945. His Vice President, Harry S. Truman, took his place.
+      </p>
+      <p>
+      Truman was much more suspicious of the Soviets, especially Stalin, than FDR had been. He was much less into appeasing the USSR during the Potsdam conference and held a harder line than Roosevelt.
+      </p>
+      <p>
+	With the Truman Doctrine, President Harry S. Truman established that the United States would provide political, military and economic assistance to all democratic nations under threat from external or internal authoritarian forces. The Truman Doctrine effectively reoriented US foreign policy, away from its usual stance of withdrawal from regional conflicts not directly involving the United States, to one of possible intervention in far away conflicts.
+        </p>
+      <figure>
+       <img src="truman.jpg" alt="Harry S. Truman taking the oath of office" />
+       <figcaption>Harry S. Truman taking the oath of office</figcaption>
+      </figure>
+    <p class="source"><a href="https://en.wikipedia.org/wiki/Presidency_of_Harry_S._Truman">ℹ</a></p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h3>June 1945</h3>
+      <h2>Insisting on Vetos for Permanent Members in the Security Council</h2>
+      <p>
+      In the San Francisco Conference, USSR demanded right in the United Nations Security Council. The US was concerned that Soviet veto could block actions in the Security Council that pertained to USSR’s interest. Soviet Union could use veto power to protect their interest in foreign countries, particularly satellite countries, rendering the Security Council ineffective. Though the US accepted the demand to ensure Soviet participation in the United Nations, the dispute reinforced the American belief that Soviet Union wouldn’t comply to democratic ideals, contributing to the anti-USSR sentiment. 
+        </p>
+      <figure>
+       <img src="sanfr.jpeg" alt="The San Francisco Conference" />
+       <figcaption>The San Francisco Conference</figcaption>
+      </figure>
+    <p class="source"><a href="https://web.archive.org/web/20190308070339/https://www.un.org/en/sections/history-united-nations-charter/1945-san-francisco-conference/index.html">ℹ</a></p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h3>June 29, 1945</h3>
+      <h2>Ukraine SSR’s Annexation of Carpathian Ruthenia</h2>
+      <p>
+        In 1945, under communist pressure, Czechoslovak President Edvard Beneš ceded Carpathian Ruthenia to the Soviet Union. The area later became part of the Ukrainian Soviet Socialist Republic and is currently a part of Ukraine, with minorities in Slovakia and Poland, housing a diverse ethnic population.
+      </p>
+      <details>
+        <summary>Background</summary>
+        <p>
+        Initially part of the Austro-Hungarian Empire, Ruthenia became part of Hungary post-World War I. Following the Paris Peace Conference, it was annexed by Czechoslovakia and renamed Subcarpathian Ruthenia. The 1938 Munich Agreement forced Czechoslovakia to cede parts of the area to Hungary and rename the remaining region Carpathian Ukraine. After the Nazis occupied Czech lands and Slovakia declared independence in 1939, Carpathian Ukraine briefly became an independent republic before being annexed by Hungary. Then, the Ukraine SSR annexation as described here, happened.
+        </p>
+      </details>
+      <p>
+      Because people living in Czechoslovakia had less sense of belonging to Czechoslovakia (as Czechosolvakia was a country newly created after WW1), the USSR exploited this to obstruct the incorporation of Carpathian Ruthenia back to Czechoslovakia. As the delegations arrived at Khust, the administrative center, they were forced to use underground radio to communicate with Czechoslovakia. All the news from the temporary headquarters in Khust were prevented from disseminating, and their activities were hindered. In the meantime, the USSR rallied to earn popular support, eventually resultant in 73% of the population in favor of the annexation. Therefore, Stalin successfully pressured Czechosolvak President Beneš to sign treaty of alliance with Stalin on behalf of the Czechoslovakia government-in-exile on June 29th 1945. Despite protest from Beneš’s government and international reproaches, Ukrainian SSR thereby annexed Carpathian Ruthenia, an act of expansionism that worsened the international relationship. <!--TODO: More analysis needed-->
+      </p>
+      <figure>
+       <img src="transcarpathia.png" alt="Location of Transcarpathia between Czechoslovakia and the Soviet Union" />
+       <figcaption><span class="legend-color" style="background-color: rgb(57, 166, 75); color:white;">&nbsp;</span>&nbsp;<b>Carpathian Ruthenia</b> <span class="legend-color" style="background-color: rgb(34, 116, 26); color:black;">&nbsp;</span>&nbsp;<b>Czechoslovakia</b> <span class="legend-color" style="background-color: rgb(172, 114, 80); color:black;">&nbsp;</span>&nbsp;<b>USSR</b></span></figcaption>
+      </figure>
+      <p class="source"><a href="https://kafkadesk.org/2021/06/29/on-this-day-in-1945-carpathian-ruthenia-was-annexed-by-the-soviet-union/">ℹ</a></a></p>
+    </div>
+  </div>
+  <div class="container left">
+    <div class="content">
+      <h3>July 6, 1945</h3>
+      <h2>The Trinity Nuclear Test</h2>
+      <p>
+      At 11:29:21 UTC+0000, July 6 1945, the United States conducted the first ever test of a nuclear weapon in the Jornada del Muerto desert in the state of New Mexico, as part of the Manhattan Project. The United States therefore knows its ability to use atomic weapons at <a href="#hiroshima">Hiroshima</a> and Nagasaki.
+      </p>
+      <p>
+      During the Potsdam Conference, President Truman was informed during the conference about the successful test. During the conference, he told Stalin that the US “had a new weapon of unusual destructive force”, without telling Stalin anything more specific. Stalin told Truman that he hoped Truman “would make good use of it against the Japanese”. However, at that point Stalin already had full knowledge of the atomic bomb’s development from his spies in the Manhattan Project. Stalin therefore knows that Truman was hiding information from him, thus aggravating mistrust between the two countries. Additionally, this meant that the United States was less incentivized to cooperate with the USSR in the Potsdam conference as it no longer depended on Soviet forces against Japan.
+      </p>
+      <figure>
+       <img src="trinity.gif" alt="The Fireball at the Trinity Test" />
+       <figcaption>The Fireball at the Trinity Test</figcaption>
+      </figure>
+      <p class="source"><a href="https://en.wikipedia.org/wiki/Trinity_(nuclear_test)">ℹ</a></a></p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h3>July 1945</h3>
+      <h2>Demanding Great Amounts of Reparations from Germany</h2>
+      <p>According to the Yalta Conference, no reparations to Allied countries would be paid in money. However, this rule was not followed in the later agreements. Stalin demanded 15% of the usable industrial equipments to be transferred to Soviet Union in exchange for raw products. Furthermore, 10% of the industrial capacity of the Western zones, deemed unnecessary for the German peace economy, were to be transferred to the Soviet Union within two years. Though US agreed on the terms, the disputes carried on on the type of equipments transferred to Allies as reparation.<!--TODO: What does this mean?--> Stalin also forced labors and in order to further exploit Germany. Reparation was fair considered the extent to which USSR sacrificed in WW2; however, USSR extracted resources excessively, by mean of dismantling industries or even removing skilled workers. After the shift in the foreign policy and growing concern on stability in Europe, the US perceived these actions as excessively punitive, undermining Germany’s capabilities to rehabilitate from the aftermath of WW2. This clash in ideology and aim contributed to the outbreak of Cold War.
+    </p>
+      <figure>
+       <img src="potsdam.jpg" alt="A Session at the Potsdam Conference" />
+       <figcaption>A Session at the Potsdam Conference</figcaption>
+      </figure>
+      <p class="source"><a href="https://en.wikipedia.org/wiki/World_War_II_reparations">ℹ</a></a></p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h3>August 4, 1945</h3>
+      <h2>Gifting of the “The Thing”</h2>
+      <p>A delegation from the Young Pioneer Organization of the Soviet Union gave William Averell Harriman, the United States Ambassador to the Soviet Union, “The Thing”, which looked like a wooden plaque of the Great Seal of the United States, as a “gesture of friendship”. It contained a tiny capacititive membrane connected to a small quarter-wavelength antenna, becoming active only when a radio signal of the correct frequency “illuminates” it. The movement of the membrane caused by sound causes the capacitance of the antenna to change, modulating radio waves which are then re-transmitted by the device. This was used by the Soviets to eavesdrop on the US. It was discovered by a British radio operator in 1951 and the FBI produced a report in 1952. It was presented by the US ambassador Henry Cabot Lodge Jr to the United Nations in 1960 as concrete proof that the USSR was spying on the US.</p> <!--TODO: What about eavesdropping during the Potsdam conference?-->
+      <p></p>
+      <figure>
+       <img style="width: 50%;" src="buggedseal.jpg" alt="Replica of The Thing which contained a Soviet bugging device, on display at the NSA’s National Cryptologic Museum" />
+       <figcaption>Replica of The Thing which contained a Soviet bugging device, on display at the NSA’s National Cryptologic Museum</figcaption>
+      </figure>
+      <p class="source">ℹ<sub><a href="https://en.wikipedia.org/wiki/The_Thing_(listening_device)#History">1</a><a href="https://www.cryptomuseum.com/covert/bugs/thing/files/GREAT_SEAL_BUG.pdf">2</a></sub></p>
+    </div>
+    </div>
+  <div class="container left">
+    <div class="content" id="hiroshima">
+      <h3>August 6, 1945</h3>
+      <h2>Atomic Bombing of Hiroshima</h2>
+      <p>United States B-29 Superfortress Enola Gay dropped a uranium- 235 atomic bomb codenamed “Little Boy” on the Japanese city of Hiroshima at 8:15 a.m. local time, resulting in between 90,000 and 146,000 deaths.</p>
+      <p>
+      On August 9, 1945, Nagasaki was similarly bombed.
+      </p>
+      <p>
+      Stalin now knows the US is prepared to use such a weapon in a real war.
+      </p>
+      <figure>
+       <img src="hiroshima.jpeg" alt="Atomic cloud over Hiroshima, taken from “Enola Gay” flying over Matsuyama, Shikoku" />
+       <figcaption>Atomic cloud over Hiroshima, taken from “Enola Gay” flying over Matsuyama, Shikoku</figcaption>
+      </figure>
+      <p class="source"><a href="https://en.wikipedia.org/wiki/Atomic_bombings_of_Hiroshima_and_Nagasaki">ℹ</a></a></p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h3>August 8, 1945</h3>
+      <h2>Late Declaration of War Against Japan</h2>
+      <p>Stalin waited until it was clear that Japan was on the brink of defeat before declaring war. This allowed the Soviet Union to make significant territorial gains with minimal losses. The Soviet Union declared war on Japan on August 8, 1945, just two days after the United States dropped the atomic bomb on Hiroshima and one day before the bombing of Nagasaki. Following their declaration of war, Soviet forces quickly launched a massive offensive against Japanese forces in Manchuria, northern Korea, southern Sakhalin, and the Kuril Islands. This allowed them to gained greater territory after Japan unconditionally surrendered.</p>
+      <figure>
+       <img src="ussrwarjapan.jpeg" alt="The USSR Declares War on Japan" />
+       <figcaption>Soviet Naval Infantrymen Flying the Navy Ensign at Port Arthur (Ryojun or Lushunkou), Liaoning, China</figcaption>
+      </figure>
+      <p class="source"><a href="https://en.wikipedia.org/wiki/Soviet–Japanese_War">ℹ</a></a></p>
+
+    </div>
+  </div>
+</div>
+<div style="margin-top: 1.5em;"></div>
+<div class="textbox" id="evaluation">
+   Both the USA and the Soviet Union had made moves that strained the relationship between them in 1945. It all boils down to their irreconcilable clashes in ideology and global interests. Though the arm race and significant advancement in technologies did draw more competition between the superpowers, hard lined diplomatic aims were the primary reason why the Cold War started. Stalin deserved more blame in this aspect as he desired more control over Eastern Europe since Yalta Conference. Despite compromises made by the US and the UK, USSR wanted more and irritated the Western powers by mean of annexation and indirect control over its sphere of influence. However, Truman’s containment policies, tougher attitude, and mistrust towards USSR after successful Trinity Test also increased the tension. Truman made less compromises in aspects such as reparations and the Soviet sphere of influence. This made Satlin worried about the USSR’s control over Europe and its own territorial security after US technological breakthroughs. Arguably, the USA shouldered the responsibility with the USSR for the escalation of global geopolitical tension but the USSR deserved more blame. 
+</div>
+</main>
+<div id="widthwarn">
+    <div class="container">
+        <img class="iso7010" src="caution.svg" alt="Caution symbol" />
+        <p>
+            Your screen is too small.<br />Increase your window width or zoom out.
+        </p>
+    </div>
+</div>
+</body>
+</html>
